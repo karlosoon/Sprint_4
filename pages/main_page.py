@@ -20,34 +20,11 @@ class MainPage:
         WebDriverWait(self.driver, 3).until(ec.visibility_of_element_located(MainPageLocators.ORDER_BUTTON))
         order_button.click()
 
-    def scroll_to_accordion(self):
+    def click_on_question(self, question):
         accordion = self.driver.find_element(*MainPageLocators.ACCORDION)
         self.driver.execute_script("arguments[0].scrollIntoView();", accordion)
         WebDriverWait(self.driver, 3).until(ec.visibility_of_element_located(MainPageLocators.ACCORDION))
-
-    def first_faq_click(self):
-        self.driver.find_element(*MainPageLocators.FIRST_FAQ).click()
-
-    def second_faq_click(self):
-        self.driver.find_element(*MainPageLocators.SECOND_FAQ).click()
-
-    def third_faq_click(self):
-        self.driver.find_element(*MainPageLocators.THIRD_FAQ).click()
-
-    def fourth_faq_click(self):
-        self.driver.find_element(*MainPageLocators.FOURTH_FAQ).click()
-
-    def fifth_faq_click(self):
-        self.driver.find_element(*MainPageLocators.FIFTH_FAQ).click()
-
-    def sixth_faq_click(self):
-        self.driver.find_element(*MainPageLocators.SIXTH_FAQ).click()
-
-    def seventh_faq_click(self):
-        self.driver.find_element(*MainPageLocators.SEVENTH_FAQ).click()
-
-    def eight_faq_click(self):
-        self.driver.find_element(*MainPageLocators.EIGHT_FAQ).click()
+        self.driver.find_element(*question).click()
 
     def get_first_answer_text(self):
         return self.driver.find_element(*MainPageLocators.FIRST_ANSWER).text
